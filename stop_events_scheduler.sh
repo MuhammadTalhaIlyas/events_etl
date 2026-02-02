@@ -5,7 +5,7 @@ cd ~/Desktop/events_etl
 
 if [ -f scheduler.pid ]; then
     PID=$(cat scheduler.pid)
-    if ps -p $PID > /dev/null; then
+    if ps -p $PID > /dev/null 2>&1; then
         kill $PID
         echo "Scheduler stopped (PID: $PID)"
         rm scheduler.pid

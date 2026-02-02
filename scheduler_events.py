@@ -9,9 +9,6 @@ import subprocess
 import sys
 from datetime import datetime
 
-sys.stdout.reconfigure(line_buffering=True)
-sys.stderr.reconfigure(line_buffering=True)
-
 def log(message):
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(f"[{timestamp}] {message}", flush=True)
@@ -54,5 +51,5 @@ if __name__ == "__main__":
             time.sleep(300)
             run_etl()
     except KeyboardInterrupt:
-        log("Scheduler stopped by user")
+        log("\nScheduler stopped by user")
         sys.exit(0)
